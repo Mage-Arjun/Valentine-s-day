@@ -1,27 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* =========================
-       Envelope Toggle (SAFE)
-    ========================== */
     const envelope = document.getElementById('envelope');
     const letter = document.querySelector('.letter');
 
-    const toggleEnvelope = () => {
+    /* =========================
+       Envelope Toggle (SMART)
+    ========================== */
+    envelope.addEventListener('click', (e) => {
+        // If the tap originated inside the letter, DO NOTHING
+        if (e.target.closest('.letter')) return;
+
         envelope.classList.toggle('open');
-    };
-
-    // Use ONLY click (mobile browsers handle tap → click)
-    envelope.addEventListener('click', toggleEnvelope);
-
-    // Prevent letter interactions from closing envelope
-    letter.addEventListener('click', (e) => {
-        e.stopPropagation();
     });
-
-    letter.addEventListener('touchstart', (e) => {
-        e.stopPropagation();
-    });
-
 
     /* =========================
        Heart Canvas Animation
