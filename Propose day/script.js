@@ -1,16 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* -------- Envelope Toggle -------- */
+    /* =========================
+       Envelope Toggle (SAFE)
+    ========================== */
     const envelope = document.getElementById('envelope');
+    const letter = document.querySelector('.letter');
 
     const toggleEnvelope = () => {
         envelope.classList.toggle('open');
     };
 
+    // Use ONLY click (mobile browsers handle tap → click)
     envelope.addEventListener('click', toggleEnvelope);
-    envelope.addEventListener('touchstart', toggleEnvelope, { passive: true });
 
-    /* -------- Heart Background -------- */
+    // Prevent letter interactions from closing envelope
+    letter.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
+    letter.addEventListener('touchstart', (e) => {
+        e.stopPropagation();
+    });
+
+
+    /* =========================
+       Heart Canvas Animation
+    ========================== */
     const canvas = document.getElementById('heartCanvas');
     const ctx = canvas.getContext('2d');
 
@@ -35,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         reset() {
             this.x = Math.random() * window.innerWidth;
-            this.y = window.innerHeight + 50;
+            this.y = window.innerHeight + 40;
             this.size = Math.random() * 10 + 6;
             this.speed = Math.random() * 1.2 + 0.5;
             this.opacity = Math.random() * 0.4 + 0.3;
