@@ -1,0 +1,103 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff4e73, #ff758c, #ff9aa2);
+  color: white;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 600px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 25px;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.message {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-top: 20px;
+  font-weight: 300;
+  word-wrap: break-word;
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #ff4e73;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #ffe6ea;
+}
+
+/* Floating heart/kiss animation */
+.floating {
+  position: absolute;
+  font-size: 24px;
+  animation: floatUp linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-10vh);
+    opacity: 1;
+  }
+}
+
+/* Media Queries for Mobile */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .message {
+    font-size: 0.95rem;
+  }
+
+  button {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
+}
